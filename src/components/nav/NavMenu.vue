@@ -33,13 +33,25 @@ const useMenuOptionsEffect = () => {
       key: 'Index'
     },
     {
+      label: '科学选科',
+      key: 'Index'
+    },
+    {
       label: '志愿填报',
       key: 'Index'
     },
     {
-      label: '测评',
+      label: '个人测评',
       key: 'Index'
-    }
+    },
+    {
+      label: '查大学',
+      key: 'Index'
+    },
+    {
+      label: '查专业',
+      key: 'Index'
+    },
   ]
   return {
     activeKey,
