@@ -30,27 +30,27 @@ const useMenuOptionsEffect = () => {
   const menuOptions:menuOptionsProps[] = [
     {
       label: '首页',
-      key: 'Index'
+      key: 'index'
     },
     {
       label: '科学选科',
-      key: 'Index'
+      key: 'index'
     },
     {
       label: '志愿填报',
-      key: 'Index'
+      key: 'index'
     },
     {
       label: '个人测评',
-      key: 'Index'
+      key: 'index'
     },
     {
       label: '查大学',
-      key: 'Index'
+      key: 'index'
     },
     {
       label: '查专业',
-      key: 'Index'
+      key: 'index'
     },
   ]
   return {

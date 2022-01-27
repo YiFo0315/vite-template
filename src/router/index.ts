@@ -8,13 +8,11 @@ function getRoutes() {
   const routes = [
     {
       path: '/',
-      alias: ['/index'],
-      component: () => import(/* webpackChunkName: "index" */ '../views/Base.vue'),
+      component: () => import('../views/Base.vue'),
       children: [
         {
           path: '',
-          name: 'Index',
-          component: () => import('../views/Index.vue')
+          redirect: 'index'
         },
         {
           path: 'register',
@@ -37,6 +35,11 @@ function getRoutes() {
           component: () => import('../views/major/details/Details.vue')
         }
       ]
+    },
+    {
+      path: '/index',
+      name: 'index',
+      component: () => import('../views/index/Index.vue')
     }
   ]
   return routes

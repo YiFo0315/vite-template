@@ -6,6 +6,7 @@ import store from './store'
 import './styles/_base.scss'
 import './assets/css/setting.css'
 import './assets/css/global.css'
+import 'animate.css'
 
 import { i18n } from './i18n'
 

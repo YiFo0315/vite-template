@@ -14,13 +14,17 @@
         description="完成注册！"
       />
     </n-steps>
-    <RegisterForm />
+    <RegisterForm v-if="currentRef===1" @next="next" />
+    <SupplementForm v-else-if="currentRef===2" @next="next" />
+    <Success v-else-if="currentRef===3" @next="next" />
   </n-card>
 </template>
 
 <script lang="ts" setup>
-import { ref } from 'vue'
+import { provide, ref } from 'vue'
 import RegisterForm from '@/views/register/RegisterForm.vue'
+import SupplementForm from '@/views/register/SupplementForm.vue'
+import Success from '@/views/register/Success.vue'
 
 const currentRef = ref<number | null>(1)
 const next = () => {
@@ -33,6 +37,7 @@ const prev = () => {
   else if (currentRef.value === null) currentRef.value = 3
   else currentRef.value--
 }
+
 </script>
 
 <style lang="scss" scoped>

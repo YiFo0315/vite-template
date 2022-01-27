@@ -94,7 +94,7 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue'
+import { inject, ref } from 'vue'
 import { useMessage } from 'naive-ui'
 
 export interface RegisterProps1{
@@ -169,8 +169,10 @@ const rules = {
   },
   avator: ''
 }
+const emit = defineEmits(['next'])
 const handleValidateButtonClick = (e:any) => {
   e.preventDefault()
+  emit('next')
   if (formRef.value === null) return
   formRef.value.validate((errors:string) => {
     if (!errors) {

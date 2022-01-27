@@ -1,9 +1,9 @@
 <template>
-  <n-grid x-gap="12" :cols="6">
+  <n-grid x-gap="12" :cols="7">
     <n-gi>
       <n-text class="brand">好志灯</n-text>
     </n-gi>
-    <n-gi span="2">
+    <n-gi span="3">
       <NavMenu></NavMenu>
     </n-gi>
     <n-gi class="input" span="2">
