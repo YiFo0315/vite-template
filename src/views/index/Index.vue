@@ -1,13 +1,13 @@
 <template>
-  <n-layout class="container">
+  <n-layout class="container" :native-scrollbar="false">
     <n-layout-header class="nav">
       <Head />
     </n-layout-header>
-    <n-layout-content class="content">
+    <n-layout-content class="content" :native-scrollbar="false">
       <n-card content-style="padding: 0 108px;" :bordered="false">
         <Content />
       </n-card>
-      <Footer class="footer"/>
+      <Footer class="footer" />
     </n-layout-content>
   </n-layout>
 </template>
@@ -28,6 +28,7 @@ import Footer from '@/views/index/Footer.vue'
   bottom: 0;
 }
 .nav{
+  position: fixed;
   left: 0;
   top: 0;
   right: 0;
@@ -35,11 +36,11 @@ import Footer from '@/views/index/Footer.vue'
   height: 1.7rem;
   padding: 0 1.08rem;
   background: #FFFFFF;
+  z-index: 999;
 }
 .content {
-  position: absolute;
   background-color: #F5F5F594;
-  top: 1.7rem;
+  padding-top: 1.7rem;
   bottom: 0;
   width: 100%;
 }
