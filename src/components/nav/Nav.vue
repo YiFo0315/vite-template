@@ -3,12 +3,12 @@
     <n-gi>
       <n-text class="brand">好志灯</n-text>
     </n-gi>
-    <n-gi span="3">
+    <n-gi span="5">
       <NavMenu></NavMenu>
     </n-gi>
-    <n-gi class="input" span="2">
+    <!-- <n-gi class="input" span="2">
       <Searcher />
-    </n-gi>
+    </n-gi> -->
     <n-gi>
       <UserStatus v-if="isLogin" :user="user"/>
       <LoginOrRegisterSpace v-else></LoginOrRegisterSpace>
