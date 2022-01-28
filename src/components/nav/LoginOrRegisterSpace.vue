@@ -1,6 +1,6 @@
 <template>
   <n-space justify="end">
-    <router-link :to="{ name:'index' }">
+    <router-link :to="{ name:'login' }">
       <n-button type="primary" ghost round>登录</n-button>
     </router-link>
     <router-link :to="{ name:'register' }">

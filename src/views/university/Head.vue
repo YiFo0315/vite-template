@@ -11,7 +11,7 @@
       </n-breadcrumb>
     </template>
     <template #footer>
-      <n-text>题目集类型：</n-text>
+      <n-text>地区：</n-text>
       <n-menu v-model:value="provinceKey" mode="horizontal" :options="province" /><br/>
       <n-text>学校层次：</n-text>
       <n-menu v-model:value="levelKey" mode="horizontal" :options="level" />
