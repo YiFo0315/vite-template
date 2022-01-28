@@ -13,12 +13,14 @@
       <!--          Loading...-->
       <!--        </template>-->
       <!--      </Suspense>-->
+      <Footer />
     </n-layout-content>
   </n-layout>
 </template>
 
 <script setup lang="ts">
 import Nav from '@/components/nav/Nav.vue'
+import Footer from '@/views/index/Footer.vue'
 
 </script>
 

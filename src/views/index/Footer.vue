@@ -1,5 +1,5 @@
 <template>
-  <n-grid :cols="2">
+  <n-grid :cols="2" class="footer">
     <n-gi>
       壹号方舟-好志灯
     </n-gi>
@@ -42,5 +42,14 @@ import { AppleFilled as Apple, AndroidFilled as Android, WechatFilled as Wechat 
 </script>
 
 <style scoped>
-
+.footer {
+  left: 0;
+  top: 0;
+  right: 0;
+  height: 128px;
+  padding: .3rem 1.28rem;
+  background: #333333;
+  color: white;
+  margin-top: 1rem;
+}
 </style>
