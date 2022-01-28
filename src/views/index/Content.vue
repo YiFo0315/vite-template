@@ -1,6 +1,6 @@
 <template>
   <Poster />
-  <Planning />
+  <Planning  style="margin-top: 4rem"/>
   <n-grid :cols="2">
     <n-gi>
       <PersonalityTest />

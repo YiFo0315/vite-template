@@ -46,12 +46,12 @@ const useMenuOptionsEffect = () => {
     },
     {
       label: '查大学',
-      key: 'index'
+      key: 'university'
     },
     {
       label: '查专业',
       key: 'index'
-    },
+    }
   ]
   return {
     activeKey,

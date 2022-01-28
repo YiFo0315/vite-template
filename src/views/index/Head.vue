@@ -18,11 +18,24 @@
       <LoginOrRegisterSpace />
     </n-gi>
   </n-grid>
+  <n-tabs type="line" style="padding-left: .2rem;" :on-update:value="handleUpdate">
+    <n-tab name="index">首页</n-tab>
+    <n-tab name="university">科学选科</n-tab>
+    <n-tab name="university">志愿填报</n-tab>
+    <n-tab name="university">个人评测</n-tab>
+    <n-tab name="university">查大学</n-tab>
+    <n-tab name="major">查专业</n-tab>
+  </n-tabs>
 </template>
 
 <script setup lang="ts">
 import Searcher from '@/components/nav/Searcher.vue'
 import LoginOrRegisterSpace from '@/components/nav/LoginOrRegisterSpace.vue'
+import router from '@/router'
+
+const handleUpdate = (value: string) => {
+  router.push({ name: value })
+}
 </script>
 
 <style lang="scss" scoped>
