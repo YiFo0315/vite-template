@@ -3,7 +3,7 @@
     <n-layout-header class="nav">
       <Nav />
     </n-layout-header>
-    <n-layout-content class="content">
+    <n-layout-content class="content" :native-scrollbar="false">
       <router-view :key="$route.fullPath"></router-view>
       <!--      <Suspense>-->
       <!--        <template #default>-->

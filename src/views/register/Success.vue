@@ -1,5 +1,5 @@
 <template>
-  <n-result status="success" title="注册成功" description="2秒后自动跳转回首页">
+  <n-result status="success" title="注册成功" description="2秒后自动跳转回首页" style="margin-top: 1rem">
     <template #footer>
       <n-button @click="handleClick">手动跳转</n-button>
     </template>
