@@ -13,13 +13,13 @@
           <n-button>查看详情</n-button>
         </router-link>
       </template>
-      <n-thing :title="item.name" title-extra="extra" :description="item.city">
+      <n-thing :title="item.name" title-extra="extra" :description="item.chargeDepart + item.city">
         <n-space>
           <n-tag>{{ item.type }}</n-tag>
-          <n-tag v-if="item.is_doublefirstclass" type="primary">双一流</n-tag>
-          <n-tag v-if="item.is211" type="info">211</n-tag>
-          <n-tag v-if="item.is985" type="error">985</n-tag>
-          <n-tag v-if="item.has_graduateschool" type="warning">研究生点</n-tag>
+          <n-tag v-if="item.isDoublefirstclass" type="primary">双一流</n-tag>
+          <n-tag v-if="item.isSmall211" type="info">211</n-tag>
+          <n-tag v-if="item.isSmall985" type="error">985</n-tag>
+          <n-tag v-if="item.hasGraduateschool" type="warning">研究生点</n-tag>
         </n-space>
       </n-thing>
     </n-list-item>
@@ -34,34 +34,53 @@
 
 <script lang="ts" setup>
 import { ref } from 'vue'
-import UniversityItem from '@/views/university/UniversityItem.vue'
+import axios, { AxiosError, AxiosResponse } from 'axios'
+import { useMessage } from 'naive-ui'
 
-const data = [
-  {
-    id: 1,
-    name: '临沂大学',
-    rank: 1,
-    province: '山东',
-    city: '临沂',
-    is_doublefirstclass: false,
-    type: '公办',
-    is985: false,
-    is211: false,
-    has_graduateschool: true
-  },
-  {
-    id: 2,
-    name: '学校名称',
-    rank: 2,
-    province: '省份',
-    city: '城市',
-    is_doublefirstclass: true,
-    type: '公办',
-    is985: true,
-    is211: true,
-    has_graduateschool: true
-  }
-]
+export interface CollegeInfoProps {
+  'alias': string,
+  'area': string,
+  'begindateOfFound': number,
+  'begindateOfPresentname': number,
+  'category': string,
+  'characteristic': string,
+  'chargeDepart': string,
+  'city': string,
+  'graduateschool': string,
+  'hasExempt': number,
+  'hasGraduateschool': number,
+  'id': number,
+  'is2011': number,
+  'is88': number,
+  'isCharacteristic': number,
+  'isDoublefirstclass': number,
+  'isProvinceMinistry': number,
+  'isSmall211': number,
+  'isSmall985': number,
+  'name': string,
+  'position': string,
+  'postgraduateDiscipline': string,
+  'province': string,
+  'provinceMinistry': string,
+  'rank': number,
+  'runningDepart': string,
+  'specialmajor': string,
+  'studentRecomend': string,
+  'type': string,
+  'url': string
+}
+const message = useMessage()
+const data = ref<CollegeInfoProps[]>([])
+const handleEnter = () => {
+  axios.get('http://www.haozhideng.com/hzd/college/getCollegeInfo').then((res:AxiosResponse) => {
+    data.value = res.data.data
+  }, (err: AxiosError) => {
+    console.log(err)
+    message.error(err.message)
+  })
+}
+handleEnter()
+
 const page = ref<number>(1)
 const handleUpdate = (page:number) => {
 }

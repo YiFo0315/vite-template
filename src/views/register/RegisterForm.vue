@@ -48,10 +48,10 @@
 
       <n-grid :cols="24" :x-gap="24">
         <n-form-item-gi :span="8" label="毕业高中" path="senior">
-          <n-input v-model:value="formValue.phone" placeholder="" />
+          <n-input v-model:value="formValue.senior" placeholder="" />
         </n-form-item-gi>
-        <n-form-item-gi :span="8" label="毕业年份" path="year">
-          <n-input v-model:value="formValue.year" placeholder="" />
+        <n-form-item-gi :span="8" label="毕业年份" path="graduationYear">
+          <n-input v-model:value="formValue.graduationYear" placeholder="" />
         </n-form-item-gi>
         <n-form-item-gi :span="8" label="班级" path="class">
           <n-input v-model:value="formValue.class" placeholder="" />
@@ -104,7 +104,7 @@ export interface RegisterProps1{
   sex: string,
   phone: number | null,
   senior: string,
-  year: number | null,
+  graduationYear: number | null,
   nation: string,
   qq: number | null,
   wechat: string,
@@ -114,20 +114,20 @@ export interface RegisterProps1{
 
 const formRef = ref<HTMLFormElement|null>(null)
 const message = useMessage()
-const formValue:RegisterProps1 = {
+const formValue = ref<RegisterProps1>({
   email: '',
   username: '',
   name: '',
   sex: '',
   phone: null,
   senior: '',
-  year: null,
+  graduationYear: null,
   nation: '',
   qq: null,
   wechat: '',
   avator: '',
   class: ''
-}
+})
 const rules = {
   email: {
     required: true,
@@ -153,7 +153,7 @@ const rules = {
     trigger: ['blur', 'input'],
     message: '请输入毕业高中'
   },
-  year: {
+  graduationYear: {
     required: true,
     trigger: ['blur', 'input'],
     message: '请毕业年份'

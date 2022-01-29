@@ -9,7 +9,7 @@
           <template #cover>
             <img :src="'/src/assets/img/' + item.logo">
           </template>
-          <n-ellipsis :line-clamp="9" :tooltip="false">
+          <n-ellipsis :line-clamp="8" :tooltip="false">
             {{ item.content }}
           </n-ellipsis>
         </n-card>
