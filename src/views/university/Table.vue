@@ -71,8 +71,12 @@ export interface CollegeInfoProps {
 }
 const message = useMessage()
 const data = ref<CollegeInfoProps[]>([])
+const page = ref<number>(1)
 const handleEnter = () => {
-  axios.get('http://www.haozhideng.com/hzd/college/getCollegeInfo').then((res:AxiosResponse) => {
+  axios.get('http://www.haozhideng.com/hzd/college/findAllBy', { params: {
+    pageSize: 10,
+    pageNo: page.value
+  } }).then((res:AxiosResponse) => {
     data.value = res.data.data
   }, (err: AxiosError) => {
     console.log(err)
@@ -81,7 +85,6 @@ const handleEnter = () => {
 }
 handleEnter()
 
-const page = ref<number>(1)
 const handleUpdate = (page:number) => {
 }
 </script>
