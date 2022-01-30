@@ -10,6 +10,9 @@
         <n-breadcrumb-item>查大学</n-breadcrumb-item>
       </n-breadcrumb>
     </template>
+    <template #extra>
+      <n-button strong secondary @click="AllShow = !AllShow">{{ AllShow? '折叠筛选条件':'展开筛选条件' }}</n-button>
+    </template>
     <template #footer>
       <n-space vertical>
         <n-form-item label="所在地区：" label-placement="left">
@@ -36,91 +39,94 @@
             </n-space>
           </n-checkbox-group>
         </n-form-item>
-        <n-form-item label="学历层次：" label-placement="left">
-          <n-radio-group v-model:value="value">
-            <n-space>
-              <n-radio value="本科">
-                不限
-              </n-radio>
-              <n-radio value="本科">
-                本科
-              </n-radio>
-              <n-radio value="无">
-                专科
-              </n-radio>
-            </n-space>
-          </n-radio-group>
-        </n-form-item>
-        <n-form-item label="院校层次：" label-placement="left">
-          <n-checkbox-group v-model:value="cities">
-            <n-space item-style="display: flex;">
-              <n-checkbox
-                value="不限"
-                label="不限"
-              />
-              <n-checkbox
-                value="985"
-                label="985"
-              />
-              <n-checkbox
-                value="211"
-                label="211"
-              />
-              <n-checkbox
-                value="双一流"
-                label="双一流"
-              />
-            </n-space>
-          </n-checkbox-group>
-        </n-form-item>
-        <n-form-item label="办学性质：" label-placement="left">
-          <n-checkbox-group v-model:value="cities">
-            <n-space item-style="display: flex;">
-              <n-checkbox
-                value="不限"
-                label="不限"
-              />
-              <n-checkbox
-                value="公立大学"
-                label="公立大学"
-              />
-              <n-checkbox
-                value="民办高校"
-                label="民办高校"
-              />
-            </n-space>
-          </n-checkbox-group>
-        </n-form-item>
-        <n-form-item label="研究生点：" label-placement="left">
-          <n-radio-group v-model:value="value">
-            <n-space>
-              <n-radio value="all">
-                不限
-              </n-radio>
-              <n-radio value="有">
-                有
-              </n-radio>
-              <n-radio value="无">
-                无
-              </n-radio>
-            </n-space>
-          </n-radio-group>
-        </n-form-item>
-        <n-form-item label="独立学院：" label-placement="left">
-          <n-radio-group v-model:value="value">
-            <n-space>
-              <n-radio value="all">
-                不限
-              </n-radio>
-              <n-radio value="有">
-                有
-              </n-radio>
-              <n-radio value="无">
-                无
-              </n-radio>
-            </n-space>
-          </n-radio-group>
-        </n-form-item>
+        <n-collapse-transition :show="AllShow">
+          <n-form-item label="学历层次：" label-placement="left">
+            <n-radio-group v-model:value="value">
+              <n-space>
+                <n-radio value="本科">
+                  不限
+                </n-radio>
+                <n-radio value="本科">
+                  本科
+                </n-radio>
+                <n-radio value="无">
+                  专科
+                </n-radio>
+              </n-space>
+            </n-radio-group>
+          </n-form-item>
+          <n-form-item label="院校层次：" label-placement="left">
+            <n-checkbox-group v-model:value="cities">
+              <n-space item-style="display: flex;">
+                <n-checkbox
+                  value="不限"
+                  label="不限"
+                />
+                <n-checkbox
+                  value="985"
+                  label="985"
+                />
+                <n-checkbox
+                  value="211"
+                  label="211"
+                />
+                <n-checkbox
+                  value="双一流"
+                  label="双一流"
+                />
+              </n-space>
+            </n-checkbox-group>
+          </n-form-item>
+          <n-form-item label="办学性质：" label-placement="left">
+            <n-checkbox-group v-model:value="cities">
+              <n-space item-style="display: flex;">
+                <n-checkbox
+                  value="不限"
+                  label="不限"
+                />
+                <n-checkbox
+                  value="公立大学"
+                  label="公立大学"
+                />
+                <n-checkbox
+                  value="民办高校"
+                  label="民办高校"
+                />
+              </n-space>
+            </n-checkbox-group>
+          </n-form-item>
+          <n-form-item label="研究生点：" label-placement="left">
+            <n-radio-group v-model:value="value">
+              <n-space>
+                <n-radio value="all">
+                  不限
+                </n-radio>
+                <n-radio value="有">
+                  有
+                </n-radio>
+                <n-radio value="无">
+                  无
+                </n-radio>
+              </n-space>
+            </n-radio-group>
+          </n-form-item>
+          <n-form-item label="独立学院：" label-placement="left">
+            <n-radio-group v-model:value="value">
+              <n-space>
+                <n-radio value="all">
+                  不限
+                </n-radio>
+                <n-radio value="有">
+                  有
+                </n-radio>
+                <n-radio value="无">
+                  无
+                </n-radio>
+              </n-space>
+            </n-radio-group>
+          </n-form-item>
+        </n-collapse-transition>
+        <n-text v-show="!AllShow">......</n-text>
       </n-space>
     </template>
   </n-page-header>
@@ -134,7 +140,7 @@ defineProps<{
   typeOptions: string[],
   provinceOptions: string[]
 }>()
-
+const AllShow = ref<boolean>(false)
 const province = []
 
 const provinceKey = ref<string>('不限')
