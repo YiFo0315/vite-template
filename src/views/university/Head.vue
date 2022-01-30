@@ -1,9 +1,12 @@
 <template>
   <n-page-header>
-    <n-input-group>
-      <n-input :style="{ width: '50%' }" placeholder="搜索大学" />
-      <n-button type="primary" ghost>搜索</n-button>
-    </n-input-group>
+    <template #title>
+      <n-input-group>
+        <n-input placeholder="搜索大学" />
+        <n-button type="primary" ghost>搜索</n-button>
+      </n-input-group>
+    </template>
+
     <template #header>
       <n-breadcrumb>
         <n-breadcrumb-item>首页</n-breadcrumb-item>
