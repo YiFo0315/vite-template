@@ -1,5 +1,5 @@
 <template>
-  <n-grid x-gap="12" :cols="3">
+  <n-grid x-gap="12" :cols="3" class="head-grid">
     <n-gi>
       <n-card :bordered="false">
         <n-text style="font-size: 28px; color: #101010;">
@@ -19,12 +19,12 @@
     </n-gi>
   </n-grid>
   <n-tabs type="line" style="padding-left: .2rem;" :on-update:value="handleUpdate">
-    <n-tab name="index">首页</n-tab>
-    <n-tab name="university">科学选科</n-tab>
-    <n-tab name="university">志愿填报</n-tab>
-    <n-tab name="university">个人评测</n-tab>
-    <n-tab name="university">查大学</n-tab>
-    <n-tab name="major">查专业</n-tab>
+    <n-tab name="index" class="table-card">首页</n-tab>
+    <n-tab name="university" class="table-card">科学选科</n-tab>
+    <n-tab name="university" class="table-card">志愿填报</n-tab>
+    <n-tab name="university" class="table-card">个人评测</n-tab>
+    <n-tab name="university" class="table-card">查大学</n-tab>
+    <n-tab name="major" class="table-card">查专业</n-tab>
   </n-tabs>
 </template>
 
@@ -43,5 +43,8 @@ const handleUpdate = (value: string) => {
   line-height: normal;
   display: flex;
   align-items: center;
+}
+::v-deep .head-grid{
+  min-width: 1600px;
 }
 </style>

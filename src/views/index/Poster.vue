@@ -16,7 +16,7 @@
             <n-form-item label="密码" path="password">
               <n-input v-model:value="password" placeholder="" />
             </n-form-item>
-            <div style="display: flex; justify-content: flex-end;">
+            <div style="display: flex; justify-content: flex-end">
               <n-button
                 round
                 type="primary"
