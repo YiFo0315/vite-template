@@ -1,52 +1,48 @@
 <template>
   <n-card class="Card">
-    <Head :province-options="provinceOptions" :type-options="typeOptions" />
+    <Head @change="handleUpdate" />
     <n-divider />
-    <Table />
+    <Table @change="handleUpdate" :data="data"/>
   </n-card>
 </template>
 
 <script lang="ts" setup>
-import Head from '@/views/university/Head.vue'
-import Table from '@/views/university/Table.vue'
+import axios, { AxiosError, AxiosResponse } from 'axios'
+import { reactive, ref } from 'vue'
+import { useMessage } from 'naive-ui'
+import Table, { CollegeInfoProps } from '@/views/university/Table.vue'
+import Head, { filterSelectedProps } from '@/views/university/Head.vue'
 
-const provinceOptions = ['不限',
-  '北京',
-  '天津',
-  '河北',
-  '山西',
-  '内蒙古',
-  '辽宁',
-  '吉林',
-  '黑龙江',
-  '上海',
-  '江苏',
-  '浙江',
-  '安徽',
-  '福建',
-  '江西',
-  '山东',
-  '河南',
-  '湖北',
-  '湖南',
-  '广东',
-  '广西',
-  '海南',
-  '重庆',
-  '四川',
-  '贵州',
-  '云南',
-  '西藏',
-  '陕西',
-  '甘肃',
-  '青海',
-  '宁夏',
-  '新疆',
-  '台湾',
-  '香港',
-  '澳门']
+const message = useMessage()
+const data = ref<CollegeInfoProps[]>([])
+const pageQuery = reactive({
+  page: 1,
+  pageNum: 1,
+  hasGraduateschool: ''
 
-const typeOptions = ['不限', '综合', '工科', '农业', '林业', '医药', '师范', '语言', '财经', '政法', '体育', '艺术', '民族']
+})
+const getPageNum = () => {
+  axios.get('http://www.haozhideng.com/hzd/college/findAllBy').then((res:AxiosResponse) => {
+    pageQuery.pageNum = Math.ceil(res.data.data.length / 10)
+  }, (err: AxiosError) => {
+    console.log(err)
+    message.error(err.message)
+  })
+}
+getPageNum()
+const handleUpdate = (page:number, params?: filterSelectedProps) => {
+  axios.get('http://www.haozhideng.com/hzd/college/findAllBy', { params: {
+    pageSize: 10,
+    pageNo: page
+  } }).then((res:AxiosResponse) => {
+    data.value = res.data.data
+  }, (err: AxiosError) => {
+    console.log(err)
+    message.error(err.message)
+  })
+}
+handleUpdate(pageQuery.page)
+
 </script>
 
 <style lang="scss" scoped>

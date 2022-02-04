@@ -85,14 +85,14 @@ export default {
   border:0;
   user-select: none;
 }
-::v-deep .n-list-item__main{
+:deep(n-list-item__main){
   cursor: pointer;
 }
-::v-deep .n-list-item__main:hover .n-thing-header__title{
+:deep(.n-list-item__main:hover .n-thing-header__title){
   text-decoration:underline;
   color: #00aff0;
 }
-::v-deep .n-list-item__prefix img{
+:deep(.n-list-item__prefix img){
   height: 100px;
   width:auto;
   border-radius: 5px;
@@ -102,13 +102,13 @@ export default {
 .info-thing{
   font-size: 16px;
 }
-::v-deep .n-thing-header__title{
+:deep(.n-thing-header__title){
     font-size: 26px!important;
     height: 50px;
     line-height: 50px;
 
 }
-::v-deep .n-list-item__suffix{
+:deep(.n-list-item__suffix){
   color: #818692;
 }
 </style>

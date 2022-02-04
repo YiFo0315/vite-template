@@ -54,7 +54,6 @@
       </div>
     </n-gi>
     <n-gi>
-      
     </n-gi>
   </n-grid>
 </template>
@@ -69,10 +68,7 @@ import { AppleFilled as Apple, AndroidFilled as Android, WechatFilled as Wechat 
   background: #333333;
   color: white;
   margin-top: 1rem;
-  min-width: 1600px
-}
-.footer-gi{
-  
+  min-width: 100%;
 }
 .gi-top{
   font-size: 18px;

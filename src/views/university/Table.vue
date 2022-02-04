@@ -25,17 +25,16 @@
     </n-list-item>
   </n-list>
   <n-pagination
-    :page="page"
-    :page-count="100"
+    :page="pageQuery.page"
+    :page-count="pageQuery.pageNum"
     :on-update:page="handleUpdate"
     style="justify-content: flex-end;"
   />
 </template>
 
 <script lang="ts" setup>
-import { ref } from 'vue'
-import axios, { AxiosError, AxiosResponse } from 'axios'
-import { useMessage } from 'naive-ui'
+
+import { PropType, reactive } from 'vue'
 
 export interface CollegeInfoProps {
   'alias': string,
@@ -69,26 +68,26 @@ export interface CollegeInfoProps {
   'type': string,
   'url': string
 }
-const message = useMessage()
-const data = ref<CollegeInfoProps[]>([])
-const page = ref<number>(1)
-const handleEnter = () => {
-  axios.get('http://www.haozhideng.com/hzd/college/findAllBy', { params: {
-    pageSize: 10,
-    pageNo: page.value
-  } }).then((res:AxiosResponse) => {
-    data.value = res.data.data
-  }, (err: AxiosError) => {
-    console.log(err)
-    message.error(err.message)
-  })
-}
-handleEnter()
 
-const handleUpdate = (page:number) => {
+defineProps({
+  data: {
+    type: Object as PropType<CollegeInfoProps[]>,
+    required: true,
+    default() {
+      return []
+    }
+  }
+})
+
+const emit = defineEmits(['change'])
+
+const pageQuery = reactive({
+  page: 1,
+  pageNum: 100
+})
+
+const handleUpdate = (newPage:number) => {
+  emit('change')
+  pageQuery.page = newPage
 }
 </script>
-
-<style scoped>
-
-</style>

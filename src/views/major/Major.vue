@@ -8,6 +8,10 @@
 </template>
 
 <script lang="ts" setup>
+
+// 获取专业
+const handleEnter = () => {
+}
 </script>
 
 <style lang="scss" scoped>
