@@ -44,7 +44,7 @@ const handleUpdate = (value: string) => {
   display: flex;
   align-items: center;
 }
-::v-deep .head-grid{
+:deep(.head-grid){
   min-width: 1600px;
 }
 </style>

@@ -40,11 +40,6 @@ function getRoutes() {
       path: '/index',
       name: 'index',
       component: () => import('../views/index/Index.vue')
-    },
-    {
-      path: '/login',
-      name: 'login',
-      component: () => import('../views/index/Index.vue')
     }
   ]
   return routes
