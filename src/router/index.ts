@@ -1,4 +1,4 @@
-import { createRouter, createWebHashHistory, RouteRecordRaw } from 'vue-router'
+import { createRouter, createWebHashHistory } from 'vue-router'
 
 function getRoutes() {
   // const { routes } = loadRouters();
@@ -28,6 +28,11 @@ function getRoutes() {
           path: 'university/:id',
           name: 'university_details',
           component: () => import('../views/university/details/Details.vue')
+        },
+        {
+          path: 'major',
+          name: 'major',
+          component: () => import('../views/major/Major.vue')
         },
         {
           path: 'major/:id',

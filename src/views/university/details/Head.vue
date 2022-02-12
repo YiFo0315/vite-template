@@ -29,20 +29,50 @@
                 <n-button>分享</n-button>
                 <n-button>收藏</n-button>
               </n-space>
-              <br/><br/>
-              <n-progress type="circle" :percentage="percentage" style="margin-right: 50px;"/>
+              <br /><br />
+              <n-progress type="circle" :percentage="percentage" style="margin-right: 50px;" />
             </template>
             <n-thing :title="data.name" :description="data.city">
               <br /><br />
               <n-space size="large">
                 <n-button strong secondary>{{ data.type }}</n-button>
-                <n-button strong secondary v-if="data.is_doublefirstclass" type="primary">双一流</n-button>
-                <n-button strong secondary v-if="data.is211" type="info">211</n-button>
-                <n-button strong secondary v-if="data.is985" type="error">985</n-button>
-                <n-button strong secondary v-if="data.has_graduateschool" type="warning">研究生点</n-button>
+                <n-button
+                  v-if="data.isDoublefirstclass"
+                  strong
+                  secondary
+                  type="primary"
+                >
+                  双一流
+                </n-button>
+                <n-button
+                  v-if="data.isSmall211"
+                  strong
+                  secondary
+                  type="info"
+                >
+                  211
+                </n-button>
+                <n-button
+                  v-if="data.isSmall985"
+                  strong
+                  secondary
+                  type="error"
+                >
+                  985
+                </n-button>
+                <n-button
+                  v-if="data.hasGraduateschool"
+                  strong
+                  secondary
+                  type="warning"
+                >
+                  研究生点
+                </n-button>
               </n-space>
               <br /><br />
-              <n-button size="large" type="warning" style="width: 150px; margin-right: 20px;">官网</n-button>
+              <a :href="data.url">
+                <n-button size="large" type="warning" style="width: 150px; margin-right: 20px;">官网</n-button>
+              </a>
               <n-gradient-text type="danger" size="15"> 电话: 12345 </n-gradient-text>
             </n-thing>
           </n-list-item>

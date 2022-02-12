@@ -50,7 +50,7 @@ const useMenuOptionsEffect = () => {
     },
     {
       label: '查专业',
-      key: 'index'
+      key: 'major'
     }
   ]
   return {

@@ -7,7 +7,8 @@
       pane-style="padding: 20px;"
     >
       <n-tab-pane name="介绍">
-        {{ data.introduce }}
+        <n-card title="研究生学科信息" :bordered="false">{{ data.postgraduateDiscipline }}</n-card>
+
       </n-tab-pane>
       <n-tab-pane name="招生简章">招生简章</n-tab-pane>
     </n-tabs>

@@ -13,7 +13,7 @@
           <n-button>查看详情</n-button>
         </router-link>
       </template>
-      <n-thing :title="item.name" title-extra="extra" :description="item.chargeDepart + item.city">
+      <n-thing :title="item.name" :description="item.chargeDepart + item.city">
         <n-space>
           <n-tag>{{ item.type }}</n-tag>
           <n-tag v-if="item.isDoublefirstclass" type="primary">双一流</n-tag>
