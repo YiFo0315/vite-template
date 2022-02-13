@@ -2,9 +2,6 @@
 
 After pulling the code, execute `npm install` in the root directory of the project. After success, execute `npm run dev` to start the project (nodejs + npm needs to be installed)
 
-# Others Template
-- [vite-react-quick](https://github.com/pohunchn/vite-react-quick) - For React
-
 # Built-in
 * NetBase([Fetch](https://developer.mozilla.org/zh-CN/docs/Web/API/Fetch_API/Using_Fetch))
 * Cookie
@@ -12,7 +9,9 @@ After pulling the code, execute `npm install` in the root directory of the proje
 * [vue-router](https://next.router.vuejs.org/zh/)
 * [vuex](https://next.vuex.vuejs.org/zh/)
 * [vue-i18n](https://vue-i18n.intlify.dev/)
-* [element-plus](https://element-plus.gitee.io/#/zh-CN/component/installation)
+* naive-ui
+* axios
+* eslint
 
 # Note
 * This framework adopts [Fetch](https://developer.mozilla.org/zh-CN/docs/Web/API/Fetch_API/Using_Fetch) as a network requester, it is not recommended to introduce Axios again

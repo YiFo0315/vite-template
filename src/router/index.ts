@@ -7,44 +7,9 @@ function getRoutes() {
 	 */
   const routes = [
     {
-      path: '/',
-      component: () => import('../views/Base.vue'),
-      children: [
-        {
-          path: '',
-          redirect: 'index'
-        },
-        {
-          path: 'register',
-          name: 'register',
-          component: () => import('../views/register/Register.vue')
-        },
-        {
-          path: 'university',
-          name: 'university',
-          component: () => import('../views/university/University.vue')
-        },
-        {
-          path: 'university/:id',
-          name: 'university_details',
-          component: () => import('../views/university/details/Details.vue')
-        },
-        {
-          path: 'major',
-          name: 'major',
-          component: () => import('../views/major/Major.vue')
-        },
-        {
-          path: 'major/:id',
-          name: 'major_details',
-          component: () => import('../views/major/details/Details.vue')
-        }
-      ]
-    },
-    {
-      path: '/index',
+      path: '',
       name: 'index',
-      component: () => import('../views/index/Index.vue')
+      component: () => import('../views/Base.vue')
     }
   ]
   return routes
